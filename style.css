@@ -11,4 +11,13 @@ h1 {
     height: 50px;
     background-color:rgb(77, 165, 42);
     border-radius: 50%;
+    animation: bounce 1s infinite;
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(20px);
+    }
 }
