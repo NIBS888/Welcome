@@ -28,8 +28,17 @@ h1 {
     }
 }
 
-.ground {
+.road-wrapper {
     width: 100%;
     height: 28px;
-    border-bottom: 2px groove black;
+}
+
+.road {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to right, #666, #333, #666);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
 }
