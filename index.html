@@ -12,10 +12,56 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
      
     </head>
 <body style="background-color: aquamarine;">
 <body>
+    <canvas id="canvas" width="600" height="400" style="border:1px solid #000;"></canvas>
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        var rect = {
+            x: 50,
+            y: 50,
+            width: 50,
+            height: 50,
+            color: "blue",
+            velocityX: 1,
+            velocityY: 2
+        };
+
+        function drawRectangle() {
+            ctx.fillStyle = rect.color;
+            ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
+        }
+
+        function updatePhysics() {
+            rect.x += rect.velocityX;
+            rect.y += rect.velocityY;
+
+            if (rect.x < 0 || rect.x + rect.width > canvas.width) {
+                rect.velocityX *= -1;
+            }
+
+            if (rect.y < 0 || rect.y + rect.height > canvas.height) {
+                rect.velocityY *= -1;
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas, canvas.height);
+
+            updatePhysics();
+            drawRectangle();
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
     <h1>WELCOME</h1>
     <p>This is very cool </p>
 
@@ -23,4 +69,6 @@
 <a href="page2.html" target=_self title="Go to page 2">press me</a>
 
 
+<label for="skills">Web Dev Skills </label>
+    <progress id="Skills" value="7" max="100"
 </html>
